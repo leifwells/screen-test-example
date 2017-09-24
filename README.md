@@ -12,3 +12,18 @@ cd screen-test-example
 npm install
 ```
 
+
+Running Screen Tests
+-----------
+
+To run the screen tests, first start the Ionic server:
+
+```sh
+ionic serve
+```
+
+Then, start the screen test script:
+
+```sh
+npm run e2e-screens
+```

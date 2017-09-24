@@ -22,7 +22,7 @@ To run the screen tests, first start the Ionic server:
 ionic serve
 ```
 
-Then, start the screen test script:
+Then, in a separate terminal window opened to the project's root directory, start the screen test script:
 
 ```sh
 npm run e2e-screens

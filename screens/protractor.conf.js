@@ -1,6 +1,7 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
-var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
 const protractorImageComparison = require('protractor-image-comparison');
 
 exports.config = {
@@ -33,8 +34,14 @@ exports.config = {
     });
   },
   onPrepare: function() {
-    browser.driver.manage().window().setSize(414, 736);
+    browser.driver.manage().window().setSize(414, 810);
     jasmine.getEnv().addReporter(new SpecReporter());
+    jasmine.getEnv().addReporter(
+      new Jasmine2HtmlReporter({
+        savePath: './screens/reports/',
+        takeScreenshots: false
+      })
+    );
 
     const protractorImageComparison = require('protractor-image-comparison');
     browser. protractorImageComparison = new protractorImageComparison(

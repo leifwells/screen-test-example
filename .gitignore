@@ -33,6 +33,5 @@ $RECYCLE.BIN/
 Thumbs.db
 UserInterfaceState.xcuserstate
 
-screens/baseline/
-screens/current/
-screens/reports/
+test-screens/current/
+test-screens/reports/

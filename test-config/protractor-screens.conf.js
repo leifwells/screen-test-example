@@ -7,7 +7,7 @@ const protractorImageComparison = require('protractor-image-comparison');
 exports.config = {
   allScriptsTimeout: 11000,
   specs: [
-    './*.e2e-spec.ts'
+    '../test-screens/**/*.e2e-spec.ts'
   ],
   capabilities: {
     'browserName': 'chrome',
@@ -34,11 +34,12 @@ exports.config = {
     });
   },
   onPrepare: function() {
+    // SETS THE SIZE TO iPhone 6 Plus SIZE (height is 736 + height of )
     browser.driver.manage().window().setSize(414, 810);
     jasmine.getEnv().addReporter(new SpecReporter());
     jasmine.getEnv().addReporter(
       new Jasmine2HtmlReporter({
-        savePath: './screens/reports/',
+        savePath: './test-screens/reports/',
         takeScreenshots: false
       })
     );
@@ -46,11 +47,11 @@ exports.config = {
     const protractorImageComparison = require('protractor-image-comparison');
     browser. protractorImageComparison = new protractorImageComparison(
         {
-            actualFolder: './screens/actual/',
-            baselineFolder: './screens/baseline/',
-            diffFolder: './screens/diff/',
-            screenshotPath: './screens/current/',
-            tempFullScreenFolder: './screens/full/',
+            actualFolder: './test-screens/actual/',
+            baselineFolder: './test-screens/baseline/',
+            diffFolder: './test-screens/diff/',
+            screenshotPath: './test-screens/current/',
+            tempFullScreenFolder: './test-screens/full/',
             autoSaveBaseline: true,
             // ignoreAntialiasing: true,
             // ignoreColors: true,

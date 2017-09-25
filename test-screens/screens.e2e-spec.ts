@@ -22,7 +22,7 @@ describe('Screen Comparison', () => {
     });
 
     it('should match', () => {
-      expect(browser.protractorImageComparison.checkScreen('page-one')).toEqual(0);
+      expect(browser.protractorImageComparison.checkScreen('0page-one')).toEqual(0);
     });
   });
 
@@ -44,7 +44,7 @@ describe('Screen Comparison', () => {
 
           browser.driver.sleep(1000);
 
-          expect(browser.protractorImageComparison.checkScreen('side-menu')).toEqual(0);
+          expect(browser.protractorImageComparison.checkScreen('1side-menu')).toEqual(0);
         });
     });
   });
@@ -83,7 +83,7 @@ describe('Screen Comparison', () => {
               SO THAT THE TEST WILL PASS.
               BEST PRACTICE: VISUALLY INSPECT THE DIFF SCREENS
           */
-          expect(browser.protractorImageComparison.checkScreen('page-two')).toBeLessThan(2);
+          expect(browser.protractorImageComparison.checkScreen('2page-two')).toBeLessThan(2);
         });
     });
   });

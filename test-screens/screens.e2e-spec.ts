@@ -1,7 +1,7 @@
 import { browser, by, element } from 'protractor';
 import { ScreensPageObject } from './screens.po';
 
-const protractorImageComparison = require('protractor-image-comparison');
+// const protractorImageComparison = require('protractor-image-comparison');
 
 describe('Screen Comparison', () => {
   let page: ScreensPageObject;

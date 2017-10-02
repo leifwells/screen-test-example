@@ -1,8 +1,6 @@
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
-const Jasmine2HtmlReporter = require('protractor-jasmine2-html-reporter');
-const protractorImageComparison = require('protractor-image-comparison');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -12,7 +10,11 @@ exports.config = {
   capabilities: {
     'browserName': 'chrome',
     'chromeOptions': {
-      'args': ['--no-sandbox', 'disable-infobars', '--disable-gpu']
+      'args': [
+        '--headless',
+        '--no-sandbox',
+        '--disable-infobars'
+      ]
     },
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
     shardTestFiles: true,
@@ -34,28 +36,23 @@ exports.config = {
     });
   },
   onPrepare: function() {
-    // SETS THE SIZE TO iPhone 6 Plus SIZE (height is 736 + height of )
-    browser.driver.manage().window().setSize(414, 810);
+    // SETS THE SIZE TO iPhone 6 Plus SIZE
+    browser.driver.manage().window().setSize(414, 736);
+
     jasmine.getEnv().addReporter(new SpecReporter());
-    jasmine.getEnv().addReporter(
-      new Jasmine2HtmlReporter({
-        savePath: './test-screens/reports/',
-        takeScreenshots: false
-      })
-    );
 
     const protractorImageComparison = require('protractor-image-comparison');
-    browser. protractorImageComparison = new protractorImageComparison(
+    browser.protractorImageComparison = new protractorImageComparison(
         {
             actualFolder: './test-screens/actual/',
             baselineFolder: './test-screens/baseline/',
             diffFolder: './test-screens/diff/',
             screenshotPath: './test-screens/current/',
-            tempFullScreenFolder: './test-screens/full/',
+            // tempFullScreenFolder: './test-screens/full/',
             autoSaveBaseline: true,
             // ignoreAntialiasing: true,
             // ignoreColors: true,
-            ignoreTransparentPixel: true,
+            // ignoreTransparentPixel: true,
             // debug: true
         }
     );
